@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carosello News</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+   <div class="container">
+        <div class="items">
+                <!-- MAIN IMAGE -->
+            <div class="item" v-for="(data, index) in images"  v-show="currentIndex === index">
+                <img  :src="data.image" :alt="data.title">
+            </div>
+        </div>
+        <!-- THUMBS IMAGES -->
+        <div class="thumbs">
+            <div @click="prevImg()" class="prev"></div>
+            <div class="thumb"  v-for="(data,index) in images">
+                <img  @click="thumbImgIndex(index)" :src="data.image" :alt="data.title" >
+            </div>
+            <div @click="nextImg()" class="next"></div>
+        </div>
+    <button>Start</button>
+    <button>Stop</button>
+    <button>Reverse</button>
+    
+   </div>
+</div>
+   <!-- vue -->
+   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+   <!-- end vue -->
+   <script src="js/main.js"></script>
+</body>
+</html
