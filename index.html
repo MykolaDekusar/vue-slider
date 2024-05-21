@@ -12,15 +12,18 @@
    <div class="container">
         <div class="items">
                 <!-- MAIN IMAGE -->
-            <div class="item" v-for="(data, index) in images"  v-show="currentIndex === index">
+            <!-- <div class="item" v-for="(data, index) in images"  v-show="currentIndex === index">
                 <img  :src="data.image" :alt="data.title">
+            </div> -->
+            <div class="item">
+                <img :src="images[currentIndex].image" :alt="images[currentIndex].title">
             </div>
         </div>
         <!-- THUMBS IMAGES -->
         <div class="thumbs">
             <div @click="prevImg()" class="prev"></div>
-            <div class="thumb"  v-for="(data,index) in images">
-                <img  @click="thumbImgIndex(index)" :src="data.image" :alt="data.title" >
+            <div v-for="(data,index) in images" class="thumb" :class="{ status : currentIndex === index}">
+                <img  @click="thumbImgIndex(index)" :src="data.image" :alt="images[currentIndex].title" >
             </div>
             <div @click="nextImg()" class="next"></div>
         </div>
