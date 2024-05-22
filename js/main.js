@@ -50,4 +50,7 @@ createApp({
       console.log(this.status);
     },
   },
+  created() {
+    setInterval(this.nextImg, 3000);
+  },
 }).mount("#app");
