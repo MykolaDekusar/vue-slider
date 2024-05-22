@@ -32,7 +32,7 @@ createApp({
         },
       ],
       currentIndex: 0,
-      status: "active",
+      currentInterval: null,
     };
   },
   //METHODS
@@ -49,8 +49,16 @@ createApp({
       this.currentIndex = index;
       console.log(this.status);
     },
+    stopAutoplay() {
+      clearInterval(this.currentInterval);
+      this.currentInterval = null;
+    },
+    startAutoplay() {
+      this.currentInterval = setInterval(this.nextImg, 3000);
+    },
   },
+  //ADDING AUTOPLAY WHEN THE ITEM IS CREATED
   created() {
-    setInterval(this.nextImg, 3000);
+    this.currentInterval = setInterval(this.nextImg, 3000);
   },
 }).mount("#app");
